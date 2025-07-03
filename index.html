@@ -1,24 +1,58 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="reduce-fouce">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Organizador Financeiro</title>
 
-    <link
-        rel="stylesheet"
-        media="(prefers-color-scheme:light)"
-        href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css"
-    />
-    <link
-        rel="stylesheet"
-        media="(prefers-color-scheme:dark)"
+    <link rel="stylesheet" media="(prefers-color-scheme:light)"
+        href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
+    <link rel="stylesheet" media="(prefers-color-scheme:dark)"
         href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/dark.css"
-        onload="document.documentElement.classList.add('sl-theme-dark');"
-    />
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
+        onload="document.documentElement.classList.add('sl-theme-dark');" />
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/index.css">
 </head>
+
 <body>
-    
+    <header>
+        <div>
+            <!-- Logo -->
+            <!-- Title -->
+        </div>
+        <div>
+            <!-- Menu with actions -->
+            <!-- Light-dark switcher -->
+        </div>
+    </header>
+
+    <section>
+
+    </section>
+
+    <footer>
+
+    </footer>
+
+    <script type="module">
+        await Promise.race([
+            Promise.allSettled([
+                // customElements.whenDefined('sl-button'),
+                // customElements.whenDefined('sl-card'),
+                // customElements.whenDefined('sl-rating')
+            ]),
+            new Promise(resolve => setTimeout(resolve, 2000))
+        ]);
+
+        document.documentElement.classList.remove('reduce-fouce');
+    </script>
+    <script src="scripts/index.js"></script>
 </body>
+
 </html>

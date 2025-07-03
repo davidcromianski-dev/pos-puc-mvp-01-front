@@ -1,0 +1,27 @@
+@import './reset.css';
+@import './colors.light.css';
+@import './colors.dark.css';
+
+:root {
+    --sl-font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    --sl-font-serif: 'Domine', Georgia, 'Times New Roman', serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html.reduce-fouce {
+    opacity: 0;
+}
+
+header {
+    background-color: var(--sl-color-primary-800);
+    height: 6rem;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
