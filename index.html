@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Organizador Financeiro</title>
 
-    <link rel="stylesheet" media="(prefers-color-scheme:light)"
+    <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
-    <link rel="stylesheet" media="(prefers-color-scheme:dark)"
-        href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/dark.css"
-        onload="document.documentElement.classList.add('sl-theme-dark');" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/dark.css" />
     <script type="module"
         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,34 +24,122 @@
         <div>
             <!-- Logo -->
             <!-- Title -->
+             <h1 class="header-title">Controlador Financeiro</h1>
         </div>
         <div>
             <!-- Menu with actions -->
             <!-- Light-dark switcher -->
+             <div id="light-dark-switcher">
+                <sl-tooltip content="Habilitar modo claro">
+                    <sl-icon-button name="sun" class="only-dark theme-action" id="light"></sl-icon-button>
+                </sl-tooltip>
+                <sl-tooltip content="Habilitar modo escuro">
+                    <sl-icon-button name="moon" class="only-light theme-action" id="dark"></sl-icon-button>
+                </sl-tooltip> 
+             </div>
         </div>
     </header>
 
-    <section>
+    <article id="body-content">
+        <h1 class="body-title">Rotas</h1>
+        <sl-tab-group>
+            <sl-tab slot="nav" panel="accounts">
+                <sl-icon name="bank"></sl-icon>
+                Contas
+            </sl-tab>
 
-    </section>
+            <sl-tab slot="nav" panel="incomes">
+                <sl-icon name="cash-coin"></sl-icon>
+                Entradas
+            </sl-tab>
+
+            <sl-tab slot="nav" panel="expenses">
+                <sl-icon name="wallet"></sl-icon>
+                Gastos
+            </sl-tab>
+          
+            <sl-tab-panel name="accounts">
+                <sl-button-group>
+                    <sl-button id="list_accounts">
+                        <sl-icon slot="prefix" name="list-ul"></sl-icon>
+                        Listar contas
+                    </sl-button>
+                    <sl-button id="create_account">
+                        <sl-icon slot="prefix" name="plus-lg"></sl-icon>
+                        Cadastrar conta
+                    </sl-button>
+                    <sl-button id="edit_account" disabled>
+                        <sl-icon slot="prefix" name="pencil"></sl-icon>
+                        Editar conta
+                    </sl-button>
+                    <sl-button id="delete_account" disabled>
+                        <sl-icon slot="prefix" name="trash"></sl-icon>
+                        Deletar conta
+                    </sl-button>
+                </sl-button-group>
+                
+                <section class="datalist_container" id="accounts_list_container">
+                </section>
+            </sl-tab-panel>
+
+            <sl-tab-panel name="incomes">
+                <sl-button-group>
+                    <sl-button id="list_incomes">
+                        <sl-icon slot="prefix" name="list-ul"></sl-icon>
+                        Listar entradas
+                    </sl-button>
+                    <sl-button id="create_income">
+                        <sl-icon slot="prefix" name="plus-lg"></sl-icon>
+                        Cadastrar entrada
+                    </sl-button>
+                    <sl-button id="edit_income" disabled>
+                        <sl-icon slot="prefix" name="pencil"></sl-icon>
+                        Editar entrada
+                    </sl-button>
+                    <sl-button id="delete_income" disabled>
+                        <sl-icon slot="prefix" name="trash"></sl-icon>
+                        Deletar entrada
+                    </sl-button>
+                </sl-button-group>
+
+                <section class="datalist_container" id="incomes_list_container">
+                </section>
+            </sl-tab-panel>
+
+            <sl-tab-panel name="expenses">
+                <sl-button-group>
+                    <sl-button id="list_expenses">
+                        <sl-icon slot="prefix" name="list-ul"></sl-icon>
+                        Listar despesas
+                    </sl-button>
+                    <sl-button id="create_expense">
+                        <sl-icon slot="prefix" name="plus-lg"></sl-icon>
+                        Cadastrar despesa
+                    </sl-button>
+                    <sl-button id="edit_expense" disabled>
+                        <sl-icon slot="prefix" name="pencil"></sl-icon>
+                        Editar despesa
+                    </sl-button>
+                    <sl-button id="delete_expense" disabled>
+                        <sl-icon slot="prefix" name="trash"></sl-icon>
+                        Deletar despesa
+                    </sl-button>
+                </sl-button-group>
+
+                <section class="datalist_container" id="expenses_list_container">
+                </section>
+            </sl-tab-panel>
+        </sl-tab-group>
+    </article>
 
     <footer>
 
     </footer>
 
     <script type="module">
-        await Promise.race([
-            Promise.allSettled([
-                // customElements.whenDefined('sl-button'),
-                // customElements.whenDefined('sl-card'),
-                // customElements.whenDefined('sl-rating')
-            ]),
-            new Promise(resolve => setTimeout(resolve, 2000))
-        ]);
-
-        document.documentElement.classList.remove('reduce-fouce');
+        
     </script>
-    <script src="scripts/index.js"></script>
+    <script src="scripts/index.js" type="module"></script>
 </body>
 
 </html>
