@@ -10,8 +10,7 @@
         href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/dark.css" />
-    <script type="module"
-        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace.js" ></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Outfit:wght@100..900&display=swap"
@@ -50,7 +49,7 @@
 
             <sl-tab slot="nav" panel="incomes">
                 <sl-icon name="cash-coin"></sl-icon>
-                Entradas
+                Entradas    
             </sl-tab>
 
             <sl-tab slot="nav" panel="expenses">
@@ -60,19 +59,19 @@
           
             <sl-tab-panel name="accounts">
                 <sl-button-group>
-                    <sl-button id="list_accounts">
+                    <sl-button id="list_accounts" data-domain="accounts">
                         <sl-icon slot="prefix" name="list-ul"></sl-icon>
                         Listar contas
                     </sl-button>
-                    <sl-button id="create_account">
+                    <sl-button id="create_account" class="create_button" data-domain="accounts">
                         <sl-icon slot="prefix" name="plus-lg"></sl-icon>
                         Cadastrar conta
                     </sl-button>
-                    <sl-button id="edit_account" disabled>
+                    <sl-button id="edit_account" disabled class="edit_button" data-domain="accounts">
                         <sl-icon slot="prefix" name="pencil"></sl-icon>
                         Editar conta
                     </sl-button>
-                    <sl-button id="delete_account" disabled>
+                    <sl-button id="delete_account" disabled class="delete_button" data-domain="accounts">
                         <sl-icon slot="prefix" name="trash"></sl-icon>
                         Deletar conta
                     </sl-button>
@@ -84,19 +83,19 @@
 
             <sl-tab-panel name="incomes">
                 <sl-button-group>
-                    <sl-button id="list_incomes">
+                    <sl-button id="list_incomes" data-domain="incomes">
                         <sl-icon slot="prefix" name="list-ul"></sl-icon>
                         Listar entradas
                     </sl-button>
-                    <sl-button id="create_income">
+                    <sl-button id="create_income" class="create_button" data-domain="incomes">
                         <sl-icon slot="prefix" name="plus-lg"></sl-icon>
                         Cadastrar entrada
                     </sl-button>
-                    <sl-button id="edit_income" disabled>
+                    <sl-button id="edit_income" disabled class="edit_button" data-domain="incomes">
                         <sl-icon slot="prefix" name="pencil"></sl-icon>
                         Editar entrada
                     </sl-button>
-                    <sl-button id="delete_income" disabled>
+                    <sl-button id="delete_income" disabled class="delete_button" data-domain="incomes">
                         <sl-icon slot="prefix" name="trash"></sl-icon>
                         Deletar entrada
                     </sl-button>
@@ -108,19 +107,19 @@
 
             <sl-tab-panel name="expenses">
                 <sl-button-group>
-                    <sl-button id="list_expenses">
+                    <sl-button id="list_expenses" data-domain="expenses">
                         <sl-icon slot="prefix" name="list-ul"></sl-icon>
                         Listar despesas
                     </sl-button>
-                    <sl-button id="create_expense">
+                    <sl-button id="create_expense" class="create_button" data-domain="expenses">
                         <sl-icon slot="prefix" name="plus-lg"></sl-icon>
                         Cadastrar despesa
                     </sl-button>
-                    <sl-button id="edit_expense" disabled>
+                    <sl-button id="edit_expense" disabled class="edit_button" data-domain="expenses">
                         <sl-icon slot="prefix" name="pencil"></sl-icon>
                         Editar despesa
                     </sl-button>
-                    <sl-button id="delete_expense" disabled>
+                    <sl-button id="delete_expense" disabled class="delete_button" data-domain="expenses">
                         <sl-icon slot="prefix" name="trash"></sl-icon>
                         Deletar despesa
                     </sl-button>
@@ -133,10 +132,29 @@
     </article>
 
     <footer>
-
+        <div id="info">
+            <p>David Cromianski</p>
+            <br>
+            <small>Projeto MVP Puc Rio - Desenvolvimento Full-stack Básico</small>
+        </div>
+        <div id="social-media">
+            <sl-tooltip content="GitHub">
+                <sl-icon-button name="github" href="https://github.com/davidcromianski-dev" target="_blank" rel="noopener noreferrer"></sl-icon-button>
+            </sl-tooltip>
+            <sl-tooltip content="LinkedIn">
+                <sl-icon-button name="linkedin" href="https://www.linkedin.com/in/david-c-228006142/" target="_blank" rel="noopener noreferrer"></sl-icon-button>
+            </sl-tooltip>
+            <sl-tooltip content="Instagram">
+                <sl-icon-button name="instagram" href="https://www.instagram.com/david.gcr/" target="_blank" rel="noopener noreferrer"></sl-icon-button>
+            </sl-tooltip>
+        </div>
     </footer>
     
-    <script src="./scripts/index.js"></script>
+    <script src="./scripts/loaders.js"></script>
+    <script src="./scripts/builders.js"></script>
+    <script src="./scripts/consumers.js"></script>
+    <script src="./scripts/handlers.js"></script>
+    <script src="./scripts/app.js"></script>
 </body>
 
 </html>

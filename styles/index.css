@@ -1,6 +1,10 @@
 @import './reset.css';
 @import './colors.css';
 
+*:not(:defined) {
+    display: none;
+}
+
 :root {
     --sl-font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     --sl-font-serif: 'Domine', Georgia, 'Times New Roman', serif;
@@ -25,8 +29,9 @@ html.reduce-fouce {
 body {
     height: 100dvh;
     width: 100dvw;
+    display: flex;
+    flex-direction: column;
 }
-
 
 header {
     background-color: var(--sl-color-primary-100);
@@ -62,7 +67,7 @@ header {
 }
 
 #body-content {
-    margin: 2rem 10rem;
+    margin: 2rem 6rem;
 }
 
 .body-title {
@@ -77,5 +82,190 @@ sl-tab::part(base) {
 }
 
 .datalist_container {
+    max-width: 100%;
+    box-sizing: border-box;
     padding-top: 2rem;
+    overflow: auto;
 }
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: var(--sl-border-radius-medium);
+    overflow: hidden;
+    box-shadow: var(--sl-shadow-small);
+    background-color: var(--sl-color-neutral-0);
+    font-family: var(--sl-font-sans);
+}
+
+.data-table thead {
+    background-color: var(--sl-color-primary-600);
+}
+
+.data-table th {
+    padding: var(--sl-spacing-medium) var(--sl-spacing-large);
+    text-align: left;
+    font-weight: var(--sl-font-weight-semibold);
+    color: var(--sl-color-neutral-0);
+    font-size: var(--sl-font-size-small);
+    letter-spacing: var(--sl-letter-spacing-dense);
+    border-bottom: 1px solid var(--sl-color-primary-700);
+    vertical-align: middle;
+}
+
+.data-table td {
+    padding: var(--sl-spacing-medium) var(--sl-spacing-large);
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--sl-color-neutral-200);
+    color: var(--sl-color-neutral-700);
+    font-size: var(--sl-font-size-small);
+}
+
+.data-table tbody tr:hover {
+    background-color: var(--sl-color-neutral-50);
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Checkbox styling */
+.data-table th:first-child,
+.data-table td:first-child {
+    width: 50px;
+    text-align: center;
+}
+
+.data-table sl-checkbox {
+    --size: 16px;
+}
+
+.data-table .select-all-checkbox {
+    margin: 0;
+}
+
+.data-table .item-checkbox {
+    margin: 0;
+}
+
+/* Selected row styling */
+.data-table tbody tr[selected] {
+    background-color: var(--sl-color-primary-50);
+    border-left: 3px solid var(--sl-color-primary-600);
+}
+
+small {
+    font-size: var(--sl-font-size-2x-small);
+    line-height:  var(--sl-font-size-2x-small);
+}
+
+/* Footer styling */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 6rem;
+    background-color: var(--sl-color-neutral-100);
+    border-top: 1px solid var(--sl-color-neutral-200);
+    margin-top: auto;
+}
+
+#info {
+    font-family: var(--sl-font-sans);
+    font-size: var(--sl-font-size-small);
+    color: var(--sl-color-neutral-600);
+}
+
+#social-media {
+    display: flex;
+    gap: 1rem;
+}
+
+#social-media sl-icon-button {
+    font-size: 1.5rem;
+    color: var(--sl-color-neutral-600);
+    transition: color 0.2s ease;
+}
+
+#social-media sl-icon-button:hover {
+    color: var(--sl-color-primary-600);
+}
+
+.sl-toast-stack {
+    right: 0;
+    left: auto;
+    bottom: 2rem;
+    top: auto;
+}
+
+/* Form Dialog Styling */
+.form-dialog {
+    --width: 600px;
+}
+
+.form-dialog form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-field label {
+    font-family: var(--sl-font-sans);
+    font-size: var(--sl-font-size-small);
+    font-weight: var(--sl-font-weight-medium);
+    color: var(--sl-color-neutral-700);
+}
+
+.form-field .required {
+    color: var(--sl-color-danger-600);
+}
+
+.form-field sl-input,
+.form-field sl-checkbox {
+    width: 100%;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Confirm Dialog Styling */
+.confirm-dialog {
+    --width: 400px;
+}
+
+.confirm-dialog p {
+    font-family: var(--sl-font-sans);
+    font-size: var(--sl-font-size-medium);
+    color: var(--sl-color-neutral-700);
+    margin-bottom: 1rem;
+}
+
+.confirm-dialog p:last-of-type {
+    font-size: var(--sl-font-size-small);
+    color: var(--sl-color-neutral-500);
+}
+
+.dialog-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+sl-dialog::part(title),
+*::part(form-control-label) {
+    font-family: var(--sl-font-sans) !important;
+}
+
