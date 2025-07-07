@@ -59,7 +59,7 @@ class BaseConsumer {
             return data;
         } catch (error) {
             console.error('Request failed:', error);
-            window.App.alert('danger', `Ocorreu um erro: ${error}`);
+            window.App.alert('danger', `Ops! Ocorreu um erro.`);
             return null;
         }
     }

@@ -168,7 +168,7 @@ class DatalistBuilder {
 }
 
 class FormBuilder {
-    static async build(container, data, domain, mode = 'create') {
+    static async build(container, data, domain, mode = 'create', target_id = null) {
         let ConsumerClass;
         switch (domain) {
             case 'accounts':
@@ -337,10 +337,19 @@ class FormBuilder {
 
             try {
                 if (mode === 'create') {
-                    await ConsumerClass.create(data);
+                    const response = await ConsumerClass.create(data);
+                    if (!response) {
+                        throw new Error();
+                    }
                     App.alert('success', `${ConsumerClass.name.singular} criado(a) com sucesso!`);
                 } else {
-                    await ConsumerClass.update(data.id, data);
+                    if (!target_id) {
+                        throw new Error('Target ID was not informed');
+                    }
+                    const response = await ConsumerClass.update(target_id, data);
+                    if (!response) {
+                        throw new Error();
+                    }
                     App.alert('success', `${ConsumerClass.name.singular} atualizado com sucesso!`);
                 }
 
@@ -353,7 +362,7 @@ class FormBuilder {
                 }
             } catch (error) {
                 console.error(error)
-                App.alert('danger', `Erro: ${error.message}`);
+                App.alert('danger', `Ops! Ocorreu um erro.`);
             } finally {
                 submitBtn.loading = false;
             }
